@@ -1,12 +1,19 @@
 import { createClient } from '@/lib/supabase/server'
+import { redirect } from 'next/navigation'
 import HistorialClient from './HistorialClient'
 
 export default async function HistorialPage() {
   const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) redirect('/login')
 
   const { data: profile } = await supabase
     .from('profiles')
     .select('*, campus:campus_id(id,name)')
+    .eq('id', user.id)
     .single()
 
   let query = supabase
@@ -25,11 +32,5 @@ export default async function HistorialPage() {
     .eq('active', true)
     .order('name')
 
-  return (
-    <HistorialClient
-      encuentros={encuentros ?? []}
-      campuses={campuses ?? []}
-      profile={profile}
-    />
-  )
+  return <HistorialClient encuentros={encuentros ?? []} campuses={campuses ?? []} profile={profile} />
 }
