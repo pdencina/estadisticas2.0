@@ -111,4 +111,4 @@ El formulario en `/ingresar` captura exactamente:
 - Sección Presencial: aceptaron a Jesús, total general, asistencia auditorio/kids/tweens/sala bebé/sensorial
 - Voluntarios: servicio, técnica, kids, tweens, worship, cocina, RRSS, seguridad, sala bebés, conexión, oración, merch, amor por la casa, sensorial, punto de siembra
 - Sección Online: aceptaron a Jesús, espectadores a la vez
-- Líderes de voluntarios y admins de campus etc.
+- Líderes de voluntarios y admins de campus
